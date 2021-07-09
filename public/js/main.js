@@ -1,6 +1,4 @@
 
-import * as store from "./store.js";
-
 
 const socket = io("/");
 
