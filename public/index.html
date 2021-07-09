@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>MS Teams</title>
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="shortcut icon" href="#">
+   </head>
+   <body>
+      <div class= "main_container">         
+      <div class="dashboard">
+         <div id="startVideo" class="display_none"> 
+            <button id="startVideoButton"> Start Video Call</button>
+         </div>
+         <div class = "logo_container">
+            <img class = "logo" src= "./utils/images/logo1.png"> </img>
+         </div>
+         <div class="my-code-container">
+            <p class="my-code-description-1"> Personal Code:</p>
+            <p class="my-code-description"> Share your code to invite a user to join you in meet</p>
+            <div class="my-code-value">
+               <p id="my-code-value-paragraph"> </p>
+               <button class= "my-code-copy-button">
+               copy code
+               </button>
+            </div>
+         </div>
+         <div class ="connect_container" id="connect_container">
+            <div class= "connect_description"> Enter a valid code of another user to connect in a meet:
+            </div>
+            <div class= "connect_input"> 
+               <input class="connect_input_box" id="connect_input_box">            
+               </input>
+            </div>
+            <div class= "connect_buttons">
+               <button class= "Start-Meet" id="Start-Meet">
+               Start Meet
+               </button> 
+            </div>
+         </div>
+      </div>
+
+      <div class="call">
+
+         <div id= "videos_container">
+            <div id ="video_placeholder" class="video placeholder">
+               <img class = "logo video_placeholder_image" src= "./utils/images/logo1.png"> </img>
+            </div>
+            <video class= "remote_video display_none" muted autoplay id= "remote_video"> </video>
+            <div class= "local_video_container" id= "local_video_container">
+               <video class= "local_video" id= "local_video" muted autoplay> </video>
+            </div>
+         </div>
+         <div class='call_buttons_container display_none' id='call_buttons'>
+            <button class='call_button' id='mute_button'>
+            <img src='./utils/images/unmute.png' id='mute_button_image'></img>
+            </button>
+            <button class='call_button' id='camera_button'>
+            <img src='./utils/images/camera-on.png' id='camera_button_image'></img>
+            </button>
+            <button class='call_button' id='leave_call_button'>
+            <img src='./utils/images/hangUp.png'></img>
+            </button>
+            <button id='screen_sharing_button'>
+            Share Screen
+            </button>
+         </div>         
+      </div>
+
+      <div class="messenger">
+         <div class="chat_box">CHAT-BOX</div>
+         <div class='new_message_container display_none' id='new_message'>
+            <div id="chat-window">
+               <div id="output"></div>
+            </div>
+            <input id="message" type="text" placeholder="Message" />
+            <button id="send">Send</button>
+         </div>
+      </div>
+      <div id="callFailed"> </div>
+      <script src= "./socket.io/socket.io.js"></script>
+      <script src= "./js/store.js" type= "module"></script>
+      <script src= "./js/main.js" type= "module"></script>
+   </body>
+</html>
