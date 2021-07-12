@@ -95,7 +95,7 @@ socket.on("code_wrong", () =>
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//socketId-> This will be the the socket Id / personal code of the user on the other side if the call is successful./////////
+//socketId-> This will be the the socket Id i.e. personal code of the user on the other side if the call is successful./////////
 let socketId;
 
 // Case 3: Call send Successfully. Two Users connected.////////////////////////////////////////////////////////////////
@@ -111,7 +111,7 @@ socket.on("call-successful", (data) =>
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Setting the view of the video call and chat window: Displaying the necessary text box and buttons.///////////////////
+// Setting the view chat window and adding the "Start Video Call" button: Displaying the necessary text box and buttons.///////////////////
 
 const setUpCallView = () => 
 {
@@ -127,6 +127,7 @@ const setUpCallView = () =>
 
 };
 
+//Function to show remote video on the screen after clicking  "Start Video Call" button /////////////////////////////////////////////////////
 const startVideoFunction=() =>
 {
   const callButtons = document.getElementById("call_buttons");
@@ -147,9 +148,11 @@ const startVideoFunction=() =>
 }
 
 const startVideoButton = document.getElementById("startVideoButton");
+// Event handler for "Start Video Call" button ////////////////////////////////////////////////////////////////////////////////
 startVideoButton.addEventListener("click",()=>
 {
   startVideoFunction();
+  //// emitting event to server to start the video call on other user side /////////////////////////////////////////////////////////////////
   socket.emit("start-videocall", (socketId));
 })
 
