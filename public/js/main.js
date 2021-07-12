@@ -140,7 +140,10 @@ const startVideoFunction=() =>
 
   const startVideo = document.getElementById("startVideo");
   displayNone(startVideo); 
-  myVideoStream.getAudioTracks()[0].enabled = true;
+  const mute = "./utils/images/mute.png";
+  const micImage = document.getElementById("mute_button_image");
+  micImage.src = mute;
+  mic.style.background ="red";
 }
 
 const startVideoButton = document.getElementById("startVideoButton");
