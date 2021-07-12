@@ -476,11 +476,14 @@ var message = document.getElementById('message'),
 
 // Emit events
 btn.addEventListener('click', function(){
-  output.innerHTML += `<p style="text-align:right"> ` + `<strong style="color: blue">` + "You: " + '</strong>' + message.value + '</p>';
-    socket.emit('chat', {
-        peerId: socketId, 
-        message: message.value
-    });
+  if(message.value!=="") 
+  {   output.innerHTML += `<p style="text-align:right"> ` + `<strong style="color: blue">` + "You: " + '</strong>' + message.value + '</p>';
+      socket.emit('chat', 
+      {
+          peerId: socketId, 
+          message: message.value
+      });
+  }
     message.value = "";
 });
 
