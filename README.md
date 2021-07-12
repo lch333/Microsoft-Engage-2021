@@ -16,14 +16,14 @@ In case the entered code is wrong or the associated user is already in another m
 After a successful connection, two users can chat with each other and a “Start Video Call” Button appears on their side bar. If either users clicks on this, video call will start between them.
 
 The video call comes with following buttons:
--> Mute/Unmute   -> Camera On/Off    -> Leave Call    ->Screen Share/Switch to camera.
+1. Mute/Unmute   2. Camera On/Off    3. Leave Call    4. Screen Share/Switch to camera.
 The functions of these buttons are as suggested by their names.
 If any one of the users leave the call, the video call will end on both sides. The chatting can still be continued. The two users stay connected until one of them leaves the site.
 
 Note: Once a user successfully connects with another, his personal code cannot be used to again to make another connection. In order to start a new meet, he can refresh the page and get a new code.
 
 Applying Agile Methodology:
-Agile scrum methodology is a project management system that relies on incremental development.
+Agile scrum methodology is a project management system that relies on incremental development and involves working in sprints.
 
 The project work was divided into 4 sprints:
 Phase 1:
@@ -42,14 +42,14 @@ Phase 3:
 * Studied more about how WebRTC works.
 * Worked on the main video calling part.
 * Added features to mute/unmute ,  camera on/off and screen share.
-->Fixed few bugs.
+*Fixed few bugs.
 
 Phase 4:
--> Added the leave call button.
--> Dealt with features mentioned in Adopt Phase.
--> Added chat feature during the video meet.
--> Added the “Start Video Call” button to allow chatting before and after a video meet.
--> Fixed few Bugs.
--> Learnt to deploy on Heroku.
+* Added the leave call button.
+* Dealt with features mentioned in Adopt Phase.
+* Added chat feature during the video meet.
+* Added the “Start Video Call” button to allow chatting before and after a video meet.
+* Fixed few Bugs.
+* Learnt to deploy on Heroku.
 
 Reference:
