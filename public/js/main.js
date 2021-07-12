@@ -107,6 +107,7 @@ socket.on("call-successful", (data) =>
 
   // Create the peer connection on both sides.
   createPeerConnection();  
+  myVideoStream.getAudioTracks()[0].enabled = false;
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -139,6 +140,7 @@ const startVideoFunction=() =>
 
   const startVideo = document.getElementById("startVideo");
   displayNone(startVideo); 
+  myVideoStream.getAudioTracks()[0].enabled = true;
 }
 
 const startVideoButton = document.getElementById("startVideoButton");
@@ -447,7 +449,7 @@ const leaveCallView=() =>
 
   const startVideo = document.getElementById("startVideo");
   display(startVideo);
-
+  myVideoStream.getAudioTracks()[0].enabled = false;
 }
 
 leaveCall.addEventListener("click", ()=>
