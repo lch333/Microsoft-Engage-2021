@@ -10,18 +10,19 @@ For developing the main part of the project WebRTC is used.  <br />
 Socket.io is used to transport signaling data and connect two users by their socket ids.  <br />
 
 **Working:**  <br />
-To use this application, a user is given a unique personal code on visiting the website. He can share this code with another user, who can enter it in the “Enter code” text box to connect with the first user. <br />
+To use this application, users are given a unique personal code on visiting the website. They can share this code with another user, who needs to enter it in the alloted text box to connect with the first user. <br />
 In case the entered code is wrong or the associated user is already in another meet, the call fails and a corresponding message comes up. <br />
 
-After a successful connection, two users can chat with each other and a “Start Video Call” Button appears on their side bar. If either of the two users click on the button, the video call will start. <br />
+After a successful connection, two users can chat with each other and a “Start Video Call” Button appears on their side bar. If either of the two users click on this button, the video call will start. <br />
 
 The video call comes with the following settings (buttons): <br />
-Mute/Unmute&nbsp&nbsp, Camera On/Off, Leave Call, Screen Share/Switch to camera.<br />
+Mute/Unmute, Camera On/Off, Leave Call, Screen Share/Switch to camera.<br />
 The names of the buttons indicate their respective functions. <br />
 
-If any one of the users leave the call, the video call will end on both sides. The chatting can still be continued. The two users stay connected until one of them leaves the site. <br />
+If any one of the users leave the call, the video call will end on both sides. The chatting can still be continued. <br />
+The two users stay connected until one of them leaves the site. <br />
 
-Note: Once a user successfully connects with another, his personal code cannot be used again to make another connection. In order to start a new meet, he can refresh the page and get a new code.<br />
+Note: Once users successfully connect with a peer, they cannot use the same code to make another connection. In order to start a new meet, they can refresh the page and get a new code.<br />
 
 **Applying Agile Methodology:**  <br />
 Agile scrum methodology is a project management system that relies on incremental development and involves working in sprints.<br />
