@@ -16,7 +16,7 @@ In case the entered code is wrong or the associated user is already in another m
 After a successful connection, two users can chat with each other and a “Start Video Call” Button appears on their side bar. If either of the two users click on the button, the video call will start. &nbsp
 
 The video call comes with the following settings (buttons): &nbsp
-1. Mute/Unmute   2. Camera On/Off    3. Leave Call    4. Screen Share/Switch to camera.
+1. Mute/Unmute&nbsp&nbsp   2. Camera On/Off    3. Leave Call    4. Screen Share/Switch to camera.
 The names of the buttons indicate their respective functions. &nbsp
 If any one of the users leave the call, the video call will end on both sides. The chatting can still be continued. The two users stay connected until one of them leaves the site.  &nbsp
 
