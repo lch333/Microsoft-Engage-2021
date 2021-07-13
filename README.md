@@ -6,7 +6,7 @@ The webapp is hosted here:- https://engage-teams-clone-e.herokuapp.com/
 **Technologies Used:** <br />
 The frontend is developed using HTML, CSS and Vanilla Javascript.  <br />
 Node.js is used for writing the server side code.  <br />
-For developing the main part of the project WebRTC is used.  <br />
+WebRTC is used to allow real-time, peer-to-peer, media exchange between two devices  <br />
 Socket.io is used to transport signaling data and connect two users by their socket ids.  <br />
 
 **Working:**  <br />
