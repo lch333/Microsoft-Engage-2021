@@ -3,6 +3,8 @@ This page contains my project for Microsoft Engage 2021.
 This project involves a video calling and chatting web application for two users.
 The webapp is hosted here:- https://engage-teams-clone-e.herokuapp.com/
 
+Note: If the "Start Video Button" cannot be seen after connecting, screen should be zoomed out.
+
 **Technologies Used:** <br />
 The frontend is developed using HTML, CSS and Vanilla Javascript.  <br />
 Node.js is used for writing the server side code.  <br />
