@@ -4,9 +4,6 @@ const http = require("http");
 
 const PORT = process.env.PORT || 3000;
 
-//app.set( 'port', ( process.env.PORT || 5000 ));
-
-
 const app= express();
 
 const server= http.createServer(app);
@@ -26,11 +23,9 @@ let notAvailable = []
 io.on("connection", (socket) =>
 {
 	connectedPeers.push(socket.id);
-	//console.log(connectedPeers);
 
 	socket.on("calling-offer", (calling_code) =>
 	{
-		//console.log("call");
 		notAvailable.push(socket.id);
 
 		const f1 = notAvailable.find((element)=>
@@ -65,8 +60,7 @@ io.on("connection", (socket) =>
 
 	});
     socket.on("webRTC-offer-to-server" , (data) =>
-	{
-		//p-> connected user
+    {
 	 const p = data.peerSocketId;
 
 	 const f = connectedPeers.find((element)=>
@@ -76,63 +70,54 @@ io.on("connection", (socket) =>
       {
       	io.to(p).emit("webRTC-offer-from-server", (data.offer) );
       }	
-	}
+    }
     );
 
     socket.on("webRTC-answer-to-server" , (data) =>
-	{
-		//p-> connected user
+    {
 	 const p = data.peerSocketId;
 
 	 const f = connectedPeers.find((element)=>
           p===element );
 
-      if(f)
-      {
-      	io.to(p).emit("webRTC-answer-from-server", (data.answer) );
-      }	
-	}
+         if(f)
+         {
+      	    io.to(p).emit("webRTC-answer-from-server", (data.answer) );
+         }	
+    }
     );
 
     socket.on("webRTC-ice-to-server" , (data) =>
-	{
-		//p-> connected user
+    {
 	 const p = data.peerSocketId;
 
 	 const f = connectedPeers.find((element)=>
           p===element );
 
-	 //console.log(p);
-     //console.log(ice);
-      if(f)
-      {
-      	//console.log(p);
-      	io.to(p).emit("webRTC-ice-from-server", (data.ice) );
-      }	
-	}
-    );
+        if(f)
+        {
+      	   io.to(p).emit("webRTC-ice-from-server", (data.ice) );
+        }	
+    });
 
-	socket.on("disconnect", () =>
-	{
-		//console.log("disconnected");
-		const newconnectedPeers=[];
+    socket.on("disconnect", () =>
+    {
+	const newconnectedPeers=[];
 		
-		connectedPeers.forEach( (x) => 
-		{
-			if(x!= (socket.id))
-			{
-				newconnectedPeers.push(x);
-			}
-		})
-		connectedPeers= newconnectedPeers;
+	connectedPeers.forEach( (x) => 
+	{
+	    if(x!= (socket.id))
+	    {
+ 		newconnectedPeers.push(x);
+	    }
 	})
-
-	   ///// Handle chat event
+	connectedPeers= newconnectedPeers;
+   })
+	
   socket.on('chat', function(data)
   {
       const p = data.peerId;
-      
-            // console.log(data);
+
       io.to(p).emit('chat', data);
    
   });
