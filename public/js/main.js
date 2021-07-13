@@ -206,7 +206,7 @@ const addVideoStream = (video, stream) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-/// Main video thing ////////////////////////////////////
+///Setting up the peer coneection ////////////////////////////////////
 
 
 let peerConnection;
@@ -294,7 +294,7 @@ socket.on("webRTC-offer-from-server", async(offer) =>
   const answer = await peerConnection.createAnswer();
   await peerConnection.setLocalDescription(answer);
 
-  // sending answer...
+  // sending answer to server...///////////////////////////////////////////////////////////////////
   let data= {
     peerSocketId: socketId,
     answer: answer
@@ -302,12 +302,13 @@ socket.on("webRTC-offer-from-server", async(offer) =>
   socket.emit("webRTC-answer-to-server", (data));
 });
 
+//// recieving SDP answer from the other peer(callee)
 socket.on("webRTC-answer-from-server",async(answer) =>
 {
   await peerConnection.setRemoteDescription(answer);
 });
 
-
+////sending ICE candidate to the remote peer over its signaling channel////////////////////////////
 const sendIceCandidate=(socketId, ice) =>
 {
   let data= {
@@ -316,9 +317,10 @@ const sendIceCandidate=(socketId, ice) =>
   }
   socket.emit("webRTC-ice-to-server", (data));
 }
-
+/////////receives a new ICE candidate from the remote peer over its signaling channel////////////////////////////
 socket.on("webRTC-ice-from-server", async(ice) =>
 {
+  ///adds this new remote ICE candidate to the RTCPeerConnection's remote description////////////////////////////////////////////////////
   await peerConnection.addIceCandidate(ice);
 });
 
@@ -330,7 +332,7 @@ const updateRemoteVideo= (stream) =>
 }
 
 
-// mute unmute
+/*   Mute/Unmute Feature      *//////////////////////////////////////////////////////////////////////////////////////
 const mic = document.getElementById("mute_button");
 mic.addEventListener("click", () => 
 {
@@ -353,7 +355,9 @@ mic.addEventListener("click", () =>
     mic.style.background ="green";    
   }
 });
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/* Camera on/off Feature  */////////////////////////////////////////////////////////////////////////////////////////////////////////
 const camera = document.getElementById("camera_button");
 
 camera.addEventListener("click", () => 
@@ -377,8 +381,9 @@ camera.addEventListener("click", () =>
    camera.style.background = "rgba(0, 0, 0, 0.2)";
   }
 });
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//screen sharing////////////////////////////////////////////////////
+/*Screen Sharing Feature *////////////////////////////////////////////////////////////////////////
 let screenSharingState= false;
 let screenSharingStream ;
 
@@ -437,8 +442,9 @@ const screenSharing = async (screenSharingState) =>
       screenSharingButton.innerHTML = "Switch to camera";
   }
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////leave call
+////Leave Call Button ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const leaveCall = document.getElementById("leave_call_button");
 
@@ -468,13 +474,14 @@ socket.on("leave",(p) =>
 {
   leaveCallView();
 });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// chat feature
+
+/// Adding Chat Feature  ///////////////////////////////////////////////////////////
 var message = document.getElementById('message'),
       btn = document.getElementById('send'),
       output = document.getElementById('output');
 
-// Emit events
 btn.addEventListener('click', function(){
   if(message.value!=="") 
   {   output.innerHTML += `<p style="text-align:right"> ` + `<strong style="color: blue">` + "You: " + '</strong>' + message.value + '</p>';
@@ -487,7 +494,7 @@ btn.addEventListener('click', function(){
     message.value = "";
 });
 
-// Listen for events
 socket.on('chat', function(data){
     output.innerHTML += '<p>' + `<strong style="color: red">` + "Guest: " + '</strong>' + data.message + '</p>';
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
