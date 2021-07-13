@@ -2,7 +2,7 @@ This page contains my project for Microsoft Engage 2021.
 
 This project involves a video calling and chatting web application for two users.
 The webapp is hosted here:- https://engage-teams-clone-e.herokuapp.com/
-
+**Note:** If the "Start Video Call” Button cannot be seen after connecting, screen should be zoomed out.
 
 
 **Technologies Used:** <br />
@@ -16,7 +16,7 @@ To use this application, users are given a unique personal code on visiting the 
 In case the entered code is wrong or the associated user is already in another meet, the call fails and a corresponding message comes up. <br />
 
 After a successful connection, two users can chat with each other and a “Start Video Call” Button appears on their side bar. If either of the two users click on this button, the video call will start. <br />
-**Note:** If the "Start Video Call” Button cannot be seen after connecting, screen should be zoomed out.<br />
+If the "Start Video Call” Button cannot be seen after connecting, screen should be zoomed out.<br />
 
 The video call comes with the following settings (buttons): <br />
 Mute/Unmute, Camera On/Off, Leave Call, Screen Share/Switch to camera.<br />
