@@ -281,15 +281,13 @@ const sendOfferFromCaller = async() =>
   }
 
   ///sending offer from caller to the server
-  ///"webRTC-offer-to-server" event is emitted that is handled on the server side
   socket.emit("webRTC-offer-to-server", (data));
 };
 
-
-
+/// handle Offer
 socket.on("webRTC-offer-from-server", async(offer) =>
 {
-  // handle WebRTC Offer
+  /////sets the specified session description as the remote peer's current offer
   await peerConnection.setRemoteDescription(offer);
   const answer = await peerConnection.createAnswer();
   await peerConnection.setLocalDescription(answer);
@@ -302,9 +300,10 @@ socket.on("webRTC-offer-from-server", async(offer) =>
   socket.emit("webRTC-answer-to-server", (data));
 });
 
-//// recieving SDP answer from the other peer(callee)
+//// handle answer
 socket.on("webRTC-answer-from-server",async(answer) =>
 {
+  ////////sets the specified session description as the remote peer's current answer
   await peerConnection.setRemoteDescription(answer);
 });
 
