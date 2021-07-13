@@ -1,7 +1,7 @@
 This repository contains my project for Microsoft Engage 2021 Mentorship Program.
 
 This project involves a video calling and chatting web application for two users.
-The website is hosted here:- https://engage-teams-clone-e.herokuapp.com/
+The webapp is hosted here:- https://engage-teams-clone-e.herokuapp.com/
 
 **Technologies Used:** <br />
 The frontend is developed using HTML, CSS and Vanilla Javascript.  <br />
