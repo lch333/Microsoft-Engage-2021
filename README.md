@@ -1,6 +1,6 @@
 This repository contains my project for Microsoft Engage 2021 Mentorship Program.
 
-This project involves a video calling and chatting website for two users.
+This project involves a video calling and chatting web application for two users.
 The website is hosted here:- https://engage-teams-clone-e.herokuapp.com/
 
 **Technologies Used:** <br />
@@ -53,7 +53,8 @@ The project work was divided into 4 sprints: <br />
 * Fixed few Bugs.
 * Learnt to deploy on Heroku.
 
-**Reference:**
+**References:**
 * https://socket.io/
+* https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Signaling_and_video_calling
 * https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity
 * https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection
